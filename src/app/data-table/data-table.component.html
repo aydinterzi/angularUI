@@ -1,0 +1,24 @@
+<input type="text" (keyup.enter)="createPost(input)" #input placeholder="Eklemek istediginiz title giriniz." class="form-control mt-2 border-3 border-dark">
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>İsim</th>
+      <th>Soyisim</th>
+      <th>Numara</th>
+      <th>Giriş Tarihi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let post of posts">
+      <td>{{post.name}}</td>
+      <td>{{post.surname}}</td>
+      <td>{{post.no}}</td>
+      <td>{{post.girisTarihi}}</td>
+      <div class="btn-group">
+      <button (click)="updatePost()" class="btn btn-primary text-dark">Update</button>
+      <button (click)="deletePost(post)" class="btn btn-danger text-dark ms-1">Delete</button>
+      </div>
+      </tr>
+  </tbody>
+</table>
