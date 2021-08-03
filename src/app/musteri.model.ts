@@ -1,9 +1,11 @@
+import { Guid } from "guid-typescript";
+
 export class Musteri{
+  public id?:Guid;
+  public name?:string;
+  public surname?:string;
+  public no?:number;
+  public girisTarihi?:string;
   constructor(
-    public id?:number,
-    public isim?:string,
-    public soyisim?:string,
-    public numara?:number,
-    public giristarihi?:string
   ){}
 }

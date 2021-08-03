@@ -8,7 +8,7 @@
 
                 <mat-form-field class="example-full-width" appearance="fill">
                   <mat-label>Ad</mat-label>
-                  <input matInput required minlength="2" maxlength="20" pattern="[a-zA-Z ]*" [(ngModel)]="musteri.isim" name="ad" #ad="ngModel" type="text">
+                  <input matInput required minlength="2" maxlength="20" pattern="[a-zA-Z ]*" [(ngModel)]="musteri.name" name="ad" #ad="ngModel" type="text">
                   <div class="alert alert-danger" *ngIf="!ad.valid && ad.touched">
                     <p *ngIf="ad.errors?.minlength">Minimum 2 karakter.</p>
                     <p *ngIf="ad.errors?.required">Ad girmek zorunludur.</p>
@@ -18,7 +18,7 @@
 
               <mat-form-field class="example-full-width" appearance="fill">
                   <mat-label>Soyad</mat-label>
-                  <input matInput required minlength="2" maxlength="20" pattern="[a-zA-Z ]*" [(ngModel)]="musteri.soyisim" name="soyad" #soyad="ngModel" type="text">
+                  <input matInput required minlength="2" maxlength="20" pattern="[a-zA-Z ]*" [(ngModel)]="musteri.surname" name="soyad" #soyad="ngModel" type="text">
                   <div class="alert alert-danger" *ngIf="!soyad.valid && soyad.touched">
                     <p *ngIf="soyad.errors?.minlength">Minimum 2 karakter.</p>
                     <p *ngIf="soyad.errors?.required">Soyad girmek zorunludur.</p>
@@ -28,7 +28,7 @@
 
               <mat-form-field class="example-full-width" appearance="fill">
                   <mat-label>Numara</mat-label>
-                  <input matInput required minlength="6" maxlength="6" pattern="[0-9]+" [(ngModel)]="musteri.numara" name="numara" #numara="ngModel" type="text">
+                  <input matInput required minlength="6" maxlength="6" pattern="[0-9]+" [(ngModel)]="musteri.no" name="numara" #numara="ngModel" type="text">
                   <div class="alert alert-danger" *ngIf="!numara.valid && numara.touched">
                     <p *ngIf="numara.errors?.minlength">Numara 6 karakter olmalı.</p>
                     <p *ngIf="numara.errors?.required">Numara girmek zorunludur.</p>
@@ -38,14 +38,12 @@
 
               <mat-form-field class="example-full-width" appearance="fill">
                   <mat-label>Giriş tarihi</mat-label>
-                  <input matInput [(ngModel)]="musteri.giristarihi" name="giristarihi" #giristarihi="ngModel" type="date">
+                  <input matInput [(ngModel)]="musteri.girisTarihi" name="giristarihi" #giristarihi="ngModel" type="date">
                   <div class="alert alert-danger" *ngIf="!giristarihi.valid && giristarihi.touched">
                     <p *ngIf="giristarihi.errors?.required">Giriş tarihi girmek zorunludur.</p>
                   </div>
                 </mat-form-field>
-                <button mat-raised-button color="primary">Ekle/Güncelle</button>
-                <button mat-raised-button class="ms-2" color="warn">Sil</button>
-                <button mat-raised-button class="ms-2">Listele</button>
+                <button mat-raised-button color="primary" (click)="onClick(musteri)">Ekle/Güncelle</button>
             </form>
           </div>
       </div>
