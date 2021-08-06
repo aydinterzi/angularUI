@@ -8,12 +8,22 @@ import {MatButtonModule} from '@angular/material/button';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { DataTableComponent } from './data-table/data-table.component';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { MusteriformComponent } from './musteriform/musteriform.component'
+import { RouterModule, Routes } from '@angular/router';
+const appRoutes:Routes=[
+  {path:'',component:LoginComponent},
+  {path:'musteriform',component:MusteriformComponent},
+  {path:'login',component:LoginComponent}
+]
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
     DataTableComponent,
+    LoginComponent,
+    MusteriformComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,7 +32,8 @@ import {HttpClientModule} from '@angular/common/http'
     MatInputModule,
     MatButtonModule,
     MatSidenavModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

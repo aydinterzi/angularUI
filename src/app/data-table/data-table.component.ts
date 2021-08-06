@@ -14,7 +14,6 @@ export class DataTableComponent implements OnInit {
   response={}
 
   constructor(private requestService:RequestsService) {
-
    }
 
   ngOnInit(): void {

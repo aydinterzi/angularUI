@@ -1,0 +1,26 @@
+<div class="container">
+<div class="border border-2 rounded mt-3">
+<div class="m-2">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Username</mat-label>
+    <input matInput required minlength="2" maxlength="20" pattern="[a-zA-Z ]*" [(ngModel)]="login.username" name="ad" #ad="ngModel" type="text">
+    <div class="alert alert-danger" *ngIf="!ad.valid && ad.touched">
+      <p *ngIf="ad.errors?.minlength">Minimum 2 karakter.</p>
+      <p *ngIf="ad.errors?.required">Ad girmek zorunludur.</p>
+      <p *ngIf="ad.errors?.pattern">Uygun bir ad giriniz.</p>
+    </div>
+  </mat-form-field>
+
+<mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Password</mat-label>
+    <input matInput required minlength="2" maxlength="20" pattern="[a-zA-Z ]*" [(ngModel)]="login.password" name="soyad" #soyad="ngModel" type="text">
+    <div class="alert alert-danger" *ngIf="!soyad.valid && soyad.touched">
+      <p *ngIf="soyad.errors?.minlength">Minimum 2 karakter.</p>
+      <p *ngIf="soyad.errors?.required">Soyad girmek zorunludur.</p>
+      <p *ngIf="soyad.errors?.pattern">Uygun bir soyad giriniz.</p>
+    </div>
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="onClick(login)">Giriş Yap</button>
+</div>
+</div>
+</div>

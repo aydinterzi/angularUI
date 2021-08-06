@@ -6,6 +6,7 @@ export class Musteri{
   public surname?:string;
   public no?:number;
   public girisTarihi?:string;
+  public telefonNo?:number;
   constructor(
   ){}
 }

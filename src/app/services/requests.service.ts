@@ -11,7 +11,7 @@ export class RequestsService {
   constructor(private http:HttpClient) {
 
   }
-  getEmployees()
+    getEmployees()
     {
      return this.http.get(this.url);
     }

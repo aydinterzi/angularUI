@@ -15,11 +15,5 @@ export class AppComponent {
    */
   constructor(private request:RequestsService) {
   }
-  musteri:Musteri=new Musteri();
-  onClick(musteri:Musteri){
-    console.log(musteri);
-    this.request.createEmployee(musteri)
-    .subscribe(response=>console.log(response));
-  }
 
 }

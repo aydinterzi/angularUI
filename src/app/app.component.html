@@ -1,55 +1,17 @@
-
-      <app-sidebar></app-sidebar>
-      <div class="row">
-      <div class="col-5">
-          <div class="m-3">
-            <label class="h2" id="formlabel" >Müşteri Formu</label>
-            <form class="border p-2">
-
-                <mat-form-field class="example-full-width" appearance="fill">
-                  <mat-label>Ad</mat-label>
-                  <input matInput required minlength="2" maxlength="20" pattern="[a-zA-Z ]*" [(ngModel)]="musteri.name" name="ad" #ad="ngModel" type="text">
-                  <div class="alert alert-danger" *ngIf="!ad.valid && ad.touched">
-                    <p *ngIf="ad.errors?.minlength">Minimum 2 karakter.</p>
-                    <p *ngIf="ad.errors?.required">Ad girmek zorunludur.</p>
-                    <p *ngIf="ad.errors?.pattern">Uygun bir ad giriniz.</p>
-                  </div>
-                </mat-form-field>
-
-              <mat-form-field class="example-full-width" appearance="fill">
-                  <mat-label>Soyad</mat-label>
-                  <input matInput required minlength="2" maxlength="20" pattern="[a-zA-Z ]*" [(ngModel)]="musteri.surname" name="soyad" #soyad="ngModel" type="text">
-                  <div class="alert alert-danger" *ngIf="!soyad.valid && soyad.touched">
-                    <p *ngIf="soyad.errors?.minlength">Minimum 2 karakter.</p>
-                    <p *ngIf="soyad.errors?.required">Soyad girmek zorunludur.</p>
-                    <p *ngIf="soyad.errors?.pattern">Uygun bir soyad giriniz.</p>
-                  </div>
-                </mat-form-field>
-
-              <mat-form-field class="example-full-width" appearance="fill">
-                  <mat-label>Numara</mat-label>
-                  <input matInput required minlength="6" maxlength="6" pattern="[0-9]+" [(ngModel)]="musteri.no" name="numara" #numara="ngModel" type="text">
-                  <div class="alert alert-danger" *ngIf="!numara.valid && numara.touched">
-                    <p *ngIf="numara.errors?.minlength">Numara 6 karakter olmalı.</p>
-                    <p *ngIf="numara.errors?.required">Numara girmek zorunludur.</p>
-                    <p *ngIf="numara.errors?.pattern">Sadece sayı giriniz.</p>
-                  </div>
-                </mat-form-field>
-
-              <mat-form-field class="example-full-width" appearance="fill">
-                  <mat-label>Giriş tarihi</mat-label>
-                  <input matInput [(ngModel)]="musteri.girisTarihi" name="giristarihi" #giristarihi="ngModel" type="date">
-                  <div class="alert alert-danger" *ngIf="!giristarihi.valid && giristarihi.touched">
-                    <p *ngIf="giristarihi.errors?.required">Giriş tarihi girmek zorunludur.</p>
-                  </div>
-                </mat-form-field>
-                <button mat-raised-button color="primary" (click)="onClick(musteri)">Ekle/Güncelle</button>
-            </form>
-          </div>
-      </div>
-      <div class="col-7">
-        <app-data-table></app-data-table>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="nav nav-tabs my-4">
+        <li class="nav-item">
+          <a routerLink="" class="nav-link active">Home</a>
+        </li>
       </div>
     </div>
-
-
+    <div class="col-5">
+      <router-outlet></router-outlet>
+    </div>
+    <div class="col-7">
+      <app-data-table></app-data-table>
+    </div>
+  </div>
+</div>
