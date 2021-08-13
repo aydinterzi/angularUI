@@ -17,7 +17,6 @@ export class RequestsService {
     }
 
     createEmployee(post:Musteri){
-      console.log("deneme");
      return this.http.post(this.url,post);
     }
 

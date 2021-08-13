@@ -5,25 +5,26 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input'
 import {MatButtonModule} from '@angular/material/button';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { DataTableComponent } from './data-table/data-table.component';
 import {HttpClientModule} from '@angular/common/http';
-import { LoginComponent } from './login/login.component';
 import { MusteriformComponent } from './musteriform/musteriform.component'
 import { RouterModule, Routes } from '@angular/router';
+import { NavbarComponent } from './navbar/navbar.component';
+import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from './guards/auth_guards';
 const appRoutes:Routes=[
-  {path:'',component:LoginComponent},
-  {path:'musteriform',component:MusteriformComponent},
-  {path:'login',component:LoginComponent}
+  {path:"",component:RegisterComponent,canActivate:[AuthGuard]},
+  {path:"register",component:RegisterComponent,canActivate:[AuthGuard]},
+  {path:'musteriform',component:MusteriformComponent,canActivate:[AuthGuard]}
 ]
 @NgModule({
   declarations: [
     AppComponent,
-    SidebarComponent,
     DataTableComponent,
-    LoginComponent,
     MusteriformComponent,
+    NavbarComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +36,7 @@ const appRoutes:Routes=[
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

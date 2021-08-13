@@ -1,0 +1,25 @@
+<div class="container mt-2">
+  <div class="row">
+    <div class="col-6">
+      <form #form="ngForm" (ngSubmit)="register()">
+        <h2>Register</h2>
+        <hr>
+        <div class="input-group mb-3">
+          <input required minlength="5" maxlength="25" type="text" name="name" class="form-control" placeholder="Name" [(ngModel)]="model.name">
+        </div>
+        <div class="input-group mb-3">
+        <input required minlength="5" maxlength="25" type="text" name="username" class="form-control" placeholder="Username" [(ngModel)]="model.username">
+        </div>
+        <div class="input-group mb-3">
+          <input required minlength="5" maxlength="25" type="email" name="email" class="form-control" placeholder="Email" [(ngModel)]="model.email">
+          </div>
+          <div class="input-group mb-3">
+            <input required minlength="5" maxlength="25" type="password" name="password" class="form-control" placeholder="Password" [(ngModel)]="model.password">
+            </div>
+            <div class="d-grid">
+            <button [disabled]="form.invalid" class="btn btn-primary btn-block" type="submit">Submit</button>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
