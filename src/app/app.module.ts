@@ -13,11 +13,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './guards/auth_guards';
+import { JwtModule } from '@auth0/angular-jwt';
 const appRoutes:Routes=[
-  {path:"",component:RegisterComponent,canActivate:[AuthGuard]},
-  {path:"register",component:RegisterComponent,canActivate:[AuthGuard]},
+  {path:"",component:RegisterComponent},
+  {path:"register",component:RegisterComponent},
   {path:'musteriform',component:MusteriformComponent,canActivate:[AuthGuard]}
 ]
+export function tokenGetter(){
+  return localStorage.getItem("token");
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +38,13 @@ const appRoutes:Routes=[
     MatButtonModule,
     MatSidenavModule,
     HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ["localhost:44324"],
+        disallowedRoutes: ["localhost:44324/api/register"],
+      },
+    }),
     RouterModule.forRoot(appRoutes)
   ],
   providers: [AuthGuard],

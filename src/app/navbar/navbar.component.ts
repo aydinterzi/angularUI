@@ -9,7 +9,7 @@ import { AuthserviceService } from '../services/authservice.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private authservice:AuthserviceService,private router:Router) { }
+  constructor(public authservice:AuthserviceService,private router:Router) { }
   model:any={}
   ngOnInit(): void {
   }
@@ -24,8 +24,7 @@ export class NavbarComponent implements OnInit {
   }
 
   loggedIn(){
-    const token=localStorage.getItem("token");
-    return token?true:false;
+    return this.authservice.loggedIn();
   }
   logout(){
     localStorage.removeItem("token");
