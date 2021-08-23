@@ -14,10 +14,16 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './guards/auth_guards';
 import { JwtModule } from '@auth0/angular-jwt';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { LoginComponent } from './login/login.component';
 const appRoutes:Routes=[
-  {path:"",component:RegisterComponent},
+  {path:"",component:LoginComponent},
+  {path:"login",component:LoginComponent},
   {path:"register",component:RegisterComponent},
-  {path:'musteriform',component:MusteriformComponent,canActivate:[AuthGuard]}
+  {path:'musteriform',component:MusteriformComponent,canActivate:[AuthGuard]},
+  {path:"home",component:HomeComponent,canActivate:[AuthGuard]},
+  {path:"about",component:AboutComponent,canActivate:[AuthGuard]}
 ]
 export function tokenGetter(){
   return localStorage.getItem("token");
@@ -28,7 +34,10 @@ export function tokenGetter(){
     DataTableComponent,
     MusteriformComponent,
     NavbarComponent,
-    RegisterComponent
+    RegisterComponent,
+    HomeComponent,
+    AboutComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

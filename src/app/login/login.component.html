@@ -1,0 +1,17 @@
+<div style="background-color: #EBEBF3;" class="vh-100">
+  <form  #form="ngForm" (ngSubmit)="login()" class="p-3 bg-light rounded mx-auto" style="width: 400px;margin-top: 100px;">
+    <div class="mb-3">
+      <label class="form-label"><b>Username</b></label>
+      <input type="text" class="form-control" name="username" required [(ngModel)]="model.username">
+    </div>
+    <div class="mb-3">
+      <label class="form-label"><b>Password</b></label>
+      <input type="password" class="form-control" name="password" required [(ngModel)]="model.password">
+    </div>
+    <div class="d-grid">
+    <button [disabled]="form.invalid" type="submit" class="btn text-white btn-lg" style="background-color: #4450BC;">Sign Up</button>
+    <p class="mt-2">By signing up you agree to Terms of Service & Privacy Policy.</p>
+    <a [routerLink]="['/register']">Don't have account? Register!</a>
+  </div>
+  </form>
+</div>

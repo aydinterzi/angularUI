@@ -3,32 +3,22 @@ import { Router } from '@angular/router';
 import { AuthserviceService } from '../services/authservice.service';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class LoginComponent implements OnInit {
 
   constructor(public authservice:AuthserviceService,private router:Router) { }
   model:any={}
   ngOnInit(): void {
   }
-
   login(){
     this.authservice.login(this.model).subscribe(response=>{
-      console.log("login başarılı");
+      console.log("merhaba");
       this.router.navigate(["/musteriform"]);
     },error=>{
-      console.log("login hatalı");
+      console.log("login hataalı");
     });
-  }
-
-  loggedIn(){
-    return this.authservice.loggedIn();
-  }
-  logout(){
-    localStorage.removeItem("token");
-    this.router.navigate(["/login"]);
-    console.log("logout");
   }
 }
